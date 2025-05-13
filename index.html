@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica Personaje</title>
+    <link rel="stylesheet" href="Css/estilobre.css">
+</head>
+
+<body>
+    <header><img src="Imagenes/Bitacora 3.png" alt=""></header>
+    <nav><a href="#Grid">Grid</a>
+        <a href="#Unidades Responsivas">Unidades Responsivas</a>
+        <a href="#Calc y Clamp">Calc y Clamp</a>
+        <a href="#Repeat,minmax,auto-fit,auto-fill">Repeat,minmax,auto-fit,auto-fill</a>
+    </nav>
+    <main>
+        <section id="Grid" class="Personaje">
+            <div class="foto"><img src="Imagenes/Grid.png" alt=""></div>
+            <div class="texto">
+                <h2>Grid</h2><br>
+                <p>Introducción a CSS Grid
+                    CSS Grid es un sistema de diseño bidimensional que organiza elementos en filas y columnas de manera
+                    flexible, permitiendo la creación de estructuras complejas sin necesidad de flotantes ni
+                    posicionamiento manual. A diferencia de Flexbox, Grid ofrece un control total sobre filas y
+                    columnas, facilitando la creación de interfaces más sofisticadas.
+
+                    Características principales de CSS Grid
+                    Soporte en navegadores: Desde 2017, la mayoría de los navegadores soportan CSS Grid sin necesidad de
+                    prefijos (Chrome, Firefox, Safari, Opera). Internet Explorer 10 y 11 requieren el prefijo -ms-.
+
+                    display: grid;: Para usar Grid, el contenedor debe definirse con display: grid;, lo que convierte a
+                    los hijos directos del contenedor en elementos de la cuadrícula.
+
+                    Grid column y Grid row: Son las líneas verticales y horizontales que definen la estructura de la
+                    cuadrícula.
+
+                    Gap:
+
+                    column-gap y row-gap controlan el espacio entre columnas y filas.
+
+                    gap: Resumen de ambas propiedades (ej. gap: 10px 20px;).
+
+                    Unidad fr: Representa fracciones del espacio disponible en la cuadrícula. Ejemplo:
+                    grid-template-columns: 1fr 2fr; asigna 1 fracción a la primera columna y 2 fracciones a la segunda.
+
+                    grid-template-areas: Permite definir áreas personalizadas usando nombres, facilitando la
+                    organización visual de los elementos sin definir líneas específicas.
+
+                    grid-column-start y grid-column-end: Definen la posición de un elemento dentro de la cuadrícula,
+                    haciendo referencia a las líneas de la cuadrícula.</p>
+            </div>
+        </section>
+        <section id="Unidaddes Responsivas" class="Personaje">
+            <div class="foto"><img src="Imagenes/unidades responsivas.png" alt=""></div>
+            <div class="texto">
+                <h2>Unidades Responsivas</h2>
+                <p>Unidades en CSS para Diseño Responsivo
+                    Objetivo: Comprender y aplicar unidades CSS, con énfasis en unidades responsivas, para crear
+                    interfaces web que se adapten a distintos tamaños y resoluciones de pantalla.
+
+                    Unidades Absolutas
+                    Son fijas e invariables, como px, cm o in.
+
+                    Útiles para diseños con medidas exactas, pero no se adaptan a distintos dispositivos.
+
+                    Unidades Relativas
+                    Flexibles y adaptables:
+
+                    %: relativo al tamaño del contenedor padre.
+
+                    em: relativo al tamaño de fuente del elemento padre.
+
+                    rem: relativo al tamaño de fuente del elemento raíz.
+
+                    Ideales para diseño responsivo.
+
+                    Unidades de Vista de Ventana
+                    Se ajustan según el tamaño de la ventana del navegador:
+
+                    vw: 1% del ancho de la ventana.
+
+                    vh: 1% de la altura de la ventana.
+
+                    vmin: 1% del menor entre ancho y alto.
+
+                    vmax: 1% del mayor entre ancho y alto.
+
+                    Unidades Dinámicas de Vista de Ventana
+                    Diseñadas para mayor precisión en móviles, adaptándose a cambios en la interfaz del navegador:
+
+                    dvh: 1% de la altura dinámica del viewport (cambia en tiempo real).
+
+                    svh: 1% de la menor altura registrada del viewport.
+
+                    lvh: 1% de la mayor altura registrada del viewport.</p>
+            </div>
+        </section>
+        <section id="Calc y Clamp" class="Personaje">
+            <div class="foto"><img src="Imagenes/clamp-ex.svg" alt=""></div>
+            <div class="texto">
+                <h2>Calc y Clamp</h2>
+                <p>Facilitar el mantenimiento del código reutilizando valores como colores, tamaños y fuentes a través
+                    de variables CSS, especialmente útiles en sitios web complejos.
+
+                    ¿Qué son las variables CSS?
+                    Permiten almacenar un valor y reutilizarlo en múltiples lugares.
+
+                    Sintaxis:
+
+                    css
+                    Copy
+                    Edit
+                    --nombre: valor;
+                    propiedad: var(--nombre);
+                    Declaración de Variables
+                    Se declaran como cualquier propiedad CSS, usando doble guión (--).
+
+                    Ejemplo:
+
+                    css
+                    Copy
+                    Edit
+                    elemento {
+                    --main-color: red;
+                    }
+                    Buenas Prácticas
+                    Usar nombres semánticos como --main-text-color para mayor claridad y mantenimiento.
+
+                    Alcance de Variables
+                    Depende del lugar donde se declara.
+
+                    Se recomienda usar :root para declarar variables globales:
+
+                    css
+                    Copy
+                    Edit
+                    :root {
+                    --main-bg-color: brown;
+                    }
+                    Herencia
+                    Las variables se heredan como cualquier otra propiedad CSS. Si un elemento no tiene un valor, tomará
+                    el del elemento padre.
+
+                    Uso en Media Queries
+                    Las variables pueden adaptarse a condiciones de pantalla:
+
+                    css
+                    Copy
+                    Edit
+                    :root {
+                    --fontsize: 18px;
+                    }
+
+                    @media (min-width: 480px) {
+                    :root {
+                    --fontsize: 24px;
+                    }
+                    }
+                    Manipulación con JavaScript
+                    Las variables pueden modificarse dinámicamente:
+
+                    js
+                    Copy
+                    Edit
+                    let r = document.querySelector(':root');
+                    r.style.setProperty('--main-text-color', 'dodgerblue');
+                    :root
+                    Representa el elemento raíz (html) del documento.
+
+                    Tiene mayor especificidad que el selector html.
+
+                    Ideal para definir variables globales reutilizables.
+                </p>
+            </div>
+        </section>
+        <section id="Repeat,minmax,auto-fit,auto-fill" class="Personaje">
+            <div class="foto"><img src="Imagenes/auto-fit-fill.png" alt=""></div>
+            <div class="texto">
+                <h2>Repeat,minmax,auto-fit,auto-fill</h2>
+                <p>Crear diseños responsivos y adaptables sin escribir reglas CSS repetitivas, utilizando funciones como repeat(), minmax(), auto-fill y auto-fit.
+
+                    repeat()
+                    Evita repetir manualmente valores en grid-template-columns o grid-template-rows.
+                    
+                    Sintaxis:
+                    
+                    css
+                    Copy
+                    Edit
+                    grid-template-columns: repeat(n, valor);
+                    Ejemplo:
+                    
+                    css
+                    Copy
+                    Edit
+                    repeat(3, 1fr); // Crea 3 columnas de igual tamaño (1fr)
+                    minmax()
+                    Define un tamaño mínimo y máximo para una columna o fila.
+                    
+                    Sintaxis:
+                    
+                    css
+                    Copy
+                    Edit
+                    minmax(min, max);
+                    Ejemplo:
+                    
+                    css
+                    Copy
+                    Edit
+                    grid-template-columns: minmax(200px, 1fr);
+                    La columna tendrá al menos 200px, y crecerá hasta ocupar una fracción del espacio disponible.
+                    
+                    repeat() con minmax()
+                    Combinación poderosa para estructuras responsivas:
+                    
+                    css
+                    Copy
+                    Edit
+                    grid-template-columns: repeat(3, minmax(200px, 1fr));
+                    auto-fill
+                    Llena el contenedor con tantas columnas como quepan, sin expandir columnas vacías.
+                    
+                    Ejemplo:
+                    
+                    css
+                    Copy
+                    Edit
+                    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                    auto-fit
+                    Igual que auto-fill, pero expande las columnas cuando hay espacio disponible.
+                    
+                    Ejemplo:
+                    
+                    css
+                    Copy
+                    Edit
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
